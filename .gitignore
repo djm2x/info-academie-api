@@ -1,0 +1,17 @@
+
+
+**/dist
+**/e2e
+**/.vscode
+**/node_modules
+**/deploy
+**/deploy.rar
+# **/wwwroot
+**/bin
+**/obj
+**/docs
+**/Migrations
+
+# **/dev.db
+
+*.rar
