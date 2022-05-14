@@ -1,22 +1,21 @@
-# FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
-# WORKDIR /src
-# COPY ["apps.csproj", "./"]
-# RUN dotnet restore 
-# #"apps.csproj"
-# COPY . .
-# WORKDIR "/src/."
-# RUN dotnet build "apps.csproj" -c Release -o /app/build
+# syntax=docker/dockerfile:1
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build-env
+WORKDIR /app
 
-# FROM build AS publish
-# RUN dotnet publish "apps.csproj" -c Release -o /app/publish
+# Copy csproj and restore as distinct layers
+COPY *.csproj ./
+RUN dotnet restore
 
+# Copy everything else and build
+COPY ./ ./
+RUN dotnet publish -c Release --output ./publish /p:PublishReadyToRun=false --no-self-contained
+
+# Build runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
 WORKDIR /app
-# coming from outside
-EXPOSE 5000
+
 ENV ASPNETCORE_URLS=http://+:5000
+# EXPOSE 5005
 
-COPY ./asp_api/publish .
-# COPY --from=publish /app/publish .
-
-ENTRYPOINT ["dotnet", "apps.dll"]
+COPY --from=build-env /app/publish .
+ENTRYPOINT ["dotnet", "webapi.dll"]

@@ -49,7 +49,9 @@ namespace Api
             services.AddDbContext<MyContext>(options =>
             {
                 // options.UseSqlServer(Configuration.GetConnectionString("hicham"));
-                options.UseSqlServer(Configuration.GetConnectionString("docker"));
+                // options.UseSqlServer(Configuration.GetConnectionString("docker"));
+                options.UseNpgsql(Configuration.GetConnectionString("postgres"));
+                
                 // options.UseSqlite(Configuration.GetConnectionString("sqlite"));
                 // options.EnableDetailedErrors();
             });

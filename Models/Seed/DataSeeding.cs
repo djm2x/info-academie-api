@@ -46,7 +46,7 @@ namespace Models
                 .RuleFor(o => o.Title, f => list[id - 2])
                 .RuleFor(o => o.Order, f => f.Random.Number(1, 10))
                 .RuleFor(o => o.Description, f => f.Lorem.Word())
-                .RuleFor(o => o.Date, f => f.Date.Past())
+                .RuleFor(o => o.Date, f => f.Date.Past().ToUniversalTime())
                 .RuleFor(o => o.UrlVideo, f => videos[id - 2])
                 ;
             modelBuilder.Entity<Video>().HasData(faker.Generate(10));
@@ -134,7 +134,7 @@ namespace Models
                 .RuleFor(o => o.Email, f => id - 1 == 1 ? "prof@angular.io" : (id - 1 == 51 ? "student@angular.io" : f.Internet.Email()))
                 .RuleFor(o => o.Password, f => "123")
                 .RuleFor(o => o.IsActive, f => id - 1 == 1 ? true : f.Random.Bool())
-                .RuleFor(o => o.Date, f => f.Date.Past())
+                .RuleFor(o => o.Date, f => f.Date.Past().ToUniversalTime())
                 .RuleFor(o => o.Adresse, f => f.Address.FullAddress())
                 .RuleFor(o => o.ImageUrl, f => "assets/prof.jpg")
                 .RuleFor(o => o.Cin, f => f.Lorem.Word())
@@ -151,7 +151,7 @@ namespace Models
             var faker = new Faker<Discussion>(DataSeeding.lang)
                 .CustomInstantiator(f => new Discussion { Id = id++ })
 .RuleFor(o => o.UnReaded, f => f.Random.Number(1, 10))
-.RuleFor(o => o.Date, f => f.Date.Past())
+.RuleFor(o => o.Date, f => f.Date.Past().ToUniversalTime())
 .RuleFor(o => o.IdMe, f => f.Random.Number(1, 10))
 .RuleFor(o => o.IdOtherUser, f => f.Random.Number(1, 10))
 ;
@@ -168,7 +168,7 @@ namespace Models
                 .RuleFor(o => o.Object, f => f.Lorem.Word())
                 .RuleFor(o => o.Content, f => f.Lorem.Word())
                 .RuleFor(o => o.Vu, f => id - 1 == 1 ? true : f.Random.Bool())
-                .RuleFor(o => o.Date, f => f.Date.Past())
+                .RuleFor(o => o.Date, f => f.Date.Past().ToUniversalTime())
                 .RuleFor(o => o.IdCours, f => f.Random.Number(1, 10))
                 .RuleFor(o => o.OtherUserName, f => f.Lorem.Word())
                 .RuleFor(o => o.OtherUserImage, f => "")
@@ -198,8 +198,8 @@ namespace Models
             var faker = new Faker<EventProf>(DataSeeding.lang)
                 .CustomInstantiator(f => new EventProf { Id = id++ })
                 .RuleFor(o => o.Title, f => f.Lorem.Word())
-                .RuleFor(o => o.Start, f => f.Date.Past())
-                .RuleFor(o => o.End, f => f.Date.Past())
+                .RuleFor(o => o.Start, f => f.Date.Past().ToUniversalTime())
+                .RuleFor(o => o.End, f => f.Date.Past().ToUniversalTime())
                 .RuleFor(o => o.Color, f => "#ad2121_#FAE3E3")
                 .RuleFor(o => o.Draggable, f => id - 1 == 1 ? true : f.Random.Bool())
                 .RuleFor(o => o.Resizable, f => "1_1")
@@ -216,7 +216,7 @@ namespace Models
             int id = 1;
             var faker = new Faker<DetailUserActivite>(DataSeeding.lang)
                 .CustomInstantiator(f => new DetailUserActivite { Id = id++ })
-                .RuleFor(o => o.Date, f => f.Date.Past())
+                .RuleFor(o => o.Date, f => f.Date.Past().ToUniversalTime())
                 .RuleFor(o => o.IdUser, f => f.Random.Number(1, 10))
                 .RuleFor(o => o.IdActivite, f => f.Random.Number(1, 9))
                 ;
@@ -508,7 +508,7 @@ namespace Models
                 .CustomInstantiator(f => new ContactUs { Id = id++ })
                 .RuleFor(o => o.Object, f => f.Lorem.Word())
                 .RuleFor(o => o.Msg, f => f.Lorem.Word())
-                .RuleFor(o => o.Date, f => f.Date.Past())
+                .RuleFor(o => o.Date, f => f.Date.Past().ToUniversalTime())
                 .RuleFor(o => o.IdUser, f => f.Random.Number(1, 10))
                 ;
             modelBuilder.Entity<ContactUs>().HasData(faker.Generate(10));
@@ -543,7 +543,7 @@ namespace Models
 .RuleFor(o => o.Title, f => f.Lorem.Word())
 .RuleFor(o => o.Description, f => f.Lorem.Word())
 .RuleFor(o => o.EnableTime, f => id - 1 == 1 ? true : f.Random.Bool())
-.RuleFor(o => o.Date, f => f.Date.Past())
+.RuleFor(o => o.Date, f => f.Date.Past().ToUniversalTime())
 .RuleFor(o => o.IsActive, f => id - 1 == 1 ? true : f.Random.Bool())
 .RuleFor(o => o.IdContext, f => f.Random.Number(1, 10))
 ;
@@ -574,7 +574,7 @@ namespace Models
                 .CustomInstantiator(f => new Response { Id = id++ })
 .RuleFor(o => o.TrueResponse, f => f.Lorem.Word())
 .RuleFor(o => o.UserResponse, f => f.Lorem.Word())
-.RuleFor(o => o.Date, f => f.Date.Past())
+.RuleFor(o => o.Date, f => f.Date.Past().ToUniversalTime())
 .RuleFor(o => o.Note, f => f.Random.Number(1, 10))
 .RuleFor(o => o.IdQuestion, f => f.Random.Number(1, 10))
 .RuleFor(o => o.IdUser, f => f.Random.Number(1, 10))
