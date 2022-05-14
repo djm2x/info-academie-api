@@ -18,4 +18,4 @@ ENV ASPNETCORE_URLS=http://+:5000
 # EXPOSE 5005
 
 COPY --from=build-env /app/publish .
-ENTRYPOINT ["dotnet", "webapi.dll"]
+ENTRYPOINT ["dotnet", "apps.dll"]
