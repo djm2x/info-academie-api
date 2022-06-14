@@ -1,22 +1,12 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using Services;
 using Newtonsoft.Json;
-using Services;
-using System.IO;
 using Models;
-using System.Threading.Tasks;
-using Hubs;
 using Providers;
 using Extensions;
-using System;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel;
 using System.Security.Cryptography;
@@ -29,7 +19,6 @@ namespace Api
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-
         }
 
         public IConfiguration Configuration { get; }
@@ -48,7 +37,6 @@ namespace Api
 
             services.AddDbContext<MyContext>(options =>
             {
-                // options.UseSqlServer(Configuration.GetConnectionString("hicham"));
                 // options.UseSqlServer(Configuration.GetConnectionString("docker"));
                 options.UseNpgsql(Configuration.GetConnectionString("postgres"));
                 
