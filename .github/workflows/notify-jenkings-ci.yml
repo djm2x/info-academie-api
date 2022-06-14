@@ -9,7 +9,7 @@ on:
 
 env:
   JOB_NAME: 'infoacademie-api'
-  TOKEN: '115cadcbf38e1cca6c7902b27882037426'
+  TOKEN: '1190ece073ad727d92826064019aec2340'
 jobs:
   build:
     name: Build
