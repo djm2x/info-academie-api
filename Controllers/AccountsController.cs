@@ -252,13 +252,13 @@ namespace Controllers
         public int? IdUser { get; set; }
         public int? IdPlace { get; set; }
         public int? IdRulePlace { get; set; }
-        public string? Email { get; set; }
-        public string? UserProfil { get; set; }
+        public string Email { get; set; }
+        public string UserProfil { get; set; }
     }
 
     public class UserDTO
     {
-        public string? Email { get; set; }
-        public string? Password { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
     }
 }

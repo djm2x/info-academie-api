@@ -64,6 +64,6 @@ namespace Hubs
     public class InfoUser {
         public int? IdUser { get; set; }
         public int? IdRole { get; set; }
-        public string? ConnectionId { get; set; }
+        public string ConnectionId { get; set; }
     }
 }

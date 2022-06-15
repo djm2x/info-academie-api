@@ -5,11 +5,11 @@ namespace Models
     public partial class Cours
     {
         public int Id { get; set; }
-        public string? Nom { get; set; }
-        public string? NomAr { get; set; }
-        public string? Content { get; set; }
-        public string? FilesUrl { get; set; }
-        public string? VideosUrl { get; set; }
+        public string Nom { get; set; }
+        public string NomAr { get; set; }
+        public string Content { get; set; }
+        public string FilesUrl { get; set; }
+        public string VideosUrl { get; set; }
         public int? Semester { get; set; }
         public int? IdBranche { get; set; }
         public DateTime? CreationDate { get; set; }

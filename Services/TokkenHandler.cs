@@ -15,7 +15,7 @@ namespace Providers
         {
             _appSettings = appSettings.Value;
         }
-        public string? GenerateTokken(Claim[] claims)
+        public string GenerateTokken(Claim[] claims)
         {
 
             var tokenHandler = new JwtSecurityTokenHandler();

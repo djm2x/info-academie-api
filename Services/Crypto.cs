@@ -13,7 +13,7 @@ namespace Providers
         public Crypto(IOptions<AppSettings> appSettings) {
              _appSettings = appSettings.Value;
         }
-        public string? HashPassword(string password)
+        public string HashPassword(string password)
         {
             return password;
             return Convert.ToBase64String(KeyDerivation.Pbkdf2(

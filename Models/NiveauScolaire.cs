@@ -5,8 +5,8 @@ namespace Models
     public partial class NiveauScolaire
     {
         public int Id { get; set; }
-        public string? Nom { get; set; }
-        public string? NomAr { get; set; }
+        public string Nom { get; set; }
+        public string NomAr { get; set; }
         public int? IdCycle { get; set; }
         public double CoursLigneGroupe { get; set; }
         public double CoursLigneIndividuel { get; set; }

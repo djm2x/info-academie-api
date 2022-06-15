@@ -46,7 +46,7 @@ namespace Services
             return codeBasic;
         }
 
-        public string? GetUrl(HttpRequest request, string sub = "")
+        public string GetUrl(HttpRequest request, string sub = "")
         {
             // create link to be send to email
             var url = $"{request.Scheme}://{request.Host}{request.PathBase}/a/{sub}";
@@ -60,7 +60,7 @@ namespace Services
         }
 
 
-         public string? GenerateActivationLink(
+         public string GenerateActivationLink(
             HttpRequest request
             , string returnUrl
             , string codeBasic 
